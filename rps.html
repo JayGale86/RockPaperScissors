@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> 
+        Rock Paper Scissors
+    </title>
+
+</head>
+<body>
+
+    <script>
+        const options = ['Rock', 'Paper', 'Scissors'];
+        const optionsLength = options.length;
+        const playerSelection = "Rock";
+        const computerSelection = computerPlay();
+        let playerScore = 0;
+        let computerScore = 0;
+        let winner = "";
+
+        function computerPlay(){
+             let option = options[Math.floor(Math.random() * optionsLength)];
+             return option;
+        }
+        function playRound(playerSelection, computerSelection){
+            switch (playerSelection){
+                case "Rock": 
+                    switch (computerSelection){
+                        default:
+                        case "Rock":
+                            break; 
+                        case "Paper": 
+                            computerScore = 1;
+                            break;
+                        case "Scissors": 
+                            playerScore = 1;
+                    }
+                    break;
+                case "Paper": 
+                    switch (computerSelection){
+                        default:
+                        case "Paper":
+                            break; 
+                        case "Scissors": 
+                            computerScore = 1;
+                            break;
+                        case "Rock": 
+                            playerScore = 1;
+                    }
+                    break;
+                case "Scissors": 
+                    switch (computerSelection){
+                        default:
+                        case "Scissors":
+                            break; 
+                        case "Rock": 
+                            computerScore = 1;
+                            break;
+                        case "Paper": 
+                            playerScore = 1;
+                    }
+                    break;
+            }
+            if(playerScore == 1){
+                winner = "player";
+            } else if(computerScore == 1) {
+                winner = "computer";
+            } else {
+                winner = "draw";
+            }
+            return winner;
+
+        }
+        console.log("player = " + playerSelection + ", computer = " + computerSelection + " and winner = " + playRound(playerSelection, computerSelection));
+    </script>    
+</body>
+</html> 
